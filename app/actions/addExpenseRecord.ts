@@ -2,18 +2,8 @@
 import { auth } from '@clerk/nextjs/server';
 import { db } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
-
-interface RecordData {
-  text: string;
-  amount: number;
-  category: string;
-  date: string; // Added date field
-}
-
-interface RecordResult {
-  data?: RecordData;
-  error?: string;
-}
+import { RecordData } from '@/types';
+import { RecordResult } from '@/types';
 
 async function addExpenseRecord(formData: FormData): Promise<RecordResult> {
   const textValue = formData.get('text');
