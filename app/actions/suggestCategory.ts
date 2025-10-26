@@ -16,7 +16,7 @@ export async function suggestCategory(
     const category = await categorizeExpense(description.trim());
     return { category };
   } catch (error) {
-    console.error('❌ Error in suggestCategory server action:', error);
+    console.error('Error in suggestCategory server action:', error);
     return {
       category: 'Other',
       error: 'Unable to suggest category at this time',
